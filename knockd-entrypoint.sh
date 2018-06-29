@@ -3,7 +3,7 @@
 KNOCKD_VERBOSE="${KNOCKD_VERBOSE:=true}"
 KNOCKD_DETECT_INTERFACE="${KNOCKD_DETECT_INTERFACE:=detect-interface.sh}"
 KNOCKD_INTERFACE="${KNOCKD_INTERFACE:=$(detect-interface.sh)}"
-KNOCKD_ARGUMENTS="${KNOCKD_XTRA_ARGS:=}"
+KNOCKD_ARGUMENTS="${KNOCKD_ARGUMENTS:=}"
 
 knockd_args=( -c /etc/knockd.conf )
 
@@ -17,7 +17,6 @@ do
   knockd_args+=( "$word" )
 done
 
-# Drop to shell if $1 is bash or sh
 if grep -qsP "^(sh|bash|knock)$" <(echo "$1")
 then
   exec "${@}"
